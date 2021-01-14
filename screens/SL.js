@@ -177,7 +177,7 @@ export default class SL extends React.Component {
 
                     <TextInput
                         style={styles.loginBox}
-                        placeholder="E-mail"
+                        placeholder="  E-mail"
                         placeholderTextColor = "#888888"
                         keyboardType ='email-address'
 
@@ -191,7 +191,7 @@ export default class SL extends React.Component {
                     <TextInput style={styles.loginBox}
                         secureTextEntry = {true}
 
-                        placeholder="Password"
+                        placeholder="  Password"
                         placeholderTextColor = "#888888"
 
                         onChangeText={(text)=>{
