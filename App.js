@@ -1,26 +1,15 @@
-import * as React from 'react';
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Header } from 'react-native-elements'
-import SL from './screens/SL';
-import db from './Config';
-import firebase from 'firebase';
+import WelcomeScreen from './screens/WelcomeScreen';
+import {AppDrawerNavigator} from "./components/AppDrawerNavigator"
+import {createAppContainer,createSwitchNavigator} from 'react-navigation';
 
 export default class App extends React.Component {
- render(){
-   return(
-     <View style={styles.container}>
-             <Header backgroundColor={"black"} centerComponent={{
-                    text: "Take And Give",
-                    style: {
-                        color:'red',
-                        fontSize:30
-                    }
-                }}
-                />
-      <SL/>
-    </View>
-   )
- }
+  render(){
+    return(
+      <AppContainer/>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
@@ -30,13 +19,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  head:{
-    paddingBottom:20,
-   
-  },
-  tle:{
-    justifyContent:'center',
-    alignItems:'center',
-    fontSize:30
-  }
 });
+
+const switchNavigator = createSwitchNavigator({
+  WelcomeScreen : {screen:WelcomeScreen},
+  Drawer : {screen:AppDrawerNavigator},
+
+})
+
+const AppContainer = createAppContainer(switchNavigator)
+
