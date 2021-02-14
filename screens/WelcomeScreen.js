@@ -1,17 +1,5 @@
 import React,{Component}from 'react';
-import {
-    View,
-    Text,
-    TextInput,
-    Modal,
-    KeyboardAvoidingView,
-    StyleSheet,
-    TouchableOpacity,
-    Alert,
-    ScrollView,
-  Image} from 'react-native';
-
-
+import { View, Text, TextInput, Modal, KeyboardAvoidingView, StyleSheet, TouchableOpacity, Alert, ScrollView, Image} from 'react-native';
 import db from '../config';
 import firebase from 'firebase';
 
@@ -23,8 +11,7 @@ export default class WelcomeScreen extends Component{
     this.state={
       emailId:'',
       password:'',
-      firstName:'',
-      lastName:'',
+      uName:'',
       address:'',
       contact:'',
       confirmPassword:'',
@@ -39,7 +26,7 @@ export default class WelcomeScreen extends Component{
      firebase.auth().createUserWithEmailAndPassword(emailId, password)
      .then(()=>{
        db.collection('users').add({
-         first_name:this.state.firstName,
+         first_name:this.state.uName,
          last_name:this.state.lastName,
          contact:this.state.contact,
          email_id:this.state.emailId,
@@ -61,7 +48,7 @@ export default class WelcomeScreen extends Component{
 userLogin = (emailId, password)=>{
    firebase.auth().signInWithEmailAndPassword(emailId, password)
    .then(()=>{
-      this.props.navigation.navigate('DonateBooks');
+      this.props.navigation.navigate('Donate');
    })
    .catch((error)=> {
      var errorCode = error.code;
@@ -89,7 +76,7 @@ showModal = ()=>{
           
           onChangeText={(text)=>{
             this.setState({
-              firstName: text
+              uName: text
             })
           }}
         />
@@ -228,7 +215,7 @@ const styles = StyleSheet.create({
  profileContainer:{
    flex:1,
    justifyContent:'center',
-   alignItems:'center',
+   alignItems:'center'
  },
  title :{
    fontSize:65,

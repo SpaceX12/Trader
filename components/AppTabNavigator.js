@@ -7,18 +7,18 @@ import RequestsScreen from '../screens/RequestsScreen';
 
 
 export const AppTabNavigator = createBottomTabNavigator({
-  DonateBooks : {
+  Donate : {
     screen: DonationScreen,
     navigationOptions :{
       tabBarIcon : <Image source={require("../assets/request-list.png")} style={{width:20, height:20}}/>,
-      tabBarLabel : "Donate Books",
+      tabBarLabel : "Donate",
     }
   },
-  BookRequest: {
+  Request: {
     screen: RequestsScreen,
     navigationOptions :{
       tabBarIcon : <Image source={require("../assets/request-book.png")} style={{width:20, height:20}}/>,
-      tabBarLabel : "Book Request",
+      tabBarLabel : "Request",
     }
   }
 });
