@@ -106,10 +106,10 @@ export default class SetScreen extends React.Component{
 }
 
 const styles = StyleSheet.create({
-    container:{
-     flex:1,
-     alignItems: 'center',
-     justifyContent: 'center'
+   container:{
+    flex:1,
+    alignItems: 'center',
+    justifyContent: 'center'
    },
    formCon:{
     flex:1,

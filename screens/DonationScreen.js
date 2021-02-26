@@ -4,6 +4,7 @@ import { ListItem } from 'react-native-elements'
 import firebase from 'firebase';
 import db from '../config'
 import MyHeader from '../components/Myheader';
+import RecDetScreen from '../screens/RecDetScreen';
 
 export default class DonationScreen extends Component{
   constructor(){
@@ -38,11 +39,16 @@ export default class DonationScreen extends Component{
     return (
       <ListItem
         key={i}
-        title={item.name}
+        title={item.request_name}
         subtitle={item.reason_to_request}
         titleStyle={{ color: 'black', fontWeight: 'bold' }}
+
         rightElement={
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button}
+            onPress = {()=>{
+              this.props.navigation.navigate("ReciverDetails", {'details':item})
+            }}
+            >
               <Text style={{color:'#ffff'}}>View</Text>
             </TouchableOpacity>
           }
